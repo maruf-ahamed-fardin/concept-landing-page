@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>১০টি ইউনিক স্টোরিটেলিং ডিজাইন মকআপ — শাহিন ই মার্ট</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { canvas:'#FBF6EE', card:'#FFFDF9', sand:'#F4E9D8', ink:'#3B1F0E', clay:'#9E3B24', gur:'#B85D19', leaf:'#2D5A3C' },
+        fontFamily: { serif:['"Noto Serif Bengali"','serif'], body:['"Hind Siliguri"','sans-serif'] }
+      }
+    }
+  };
+</script>
+<style>
+  :root{--canvas:#FBF6EE;--card:#FFFDF9;--sand:#F4E9D8;--ink:#3B1F0E;--clay:#9E3B24;--gur:#B85D19;--leaf:#2D5A3C}
+  html{scroll-behavior:smooth}
+  body{font-family:'Hind Siliguri',sans-serif;background:#E9DAC2;color:var(--ink);margin:0}
+  .serif{font-family:'Noto Serif Bengali',serif}
+  .kantha{outline:1.4px dashed rgba(184,93,25,.32);outline-offset:-6px}
+  .no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}
+
+  /* Shared SVG animations */
+  .steam{transform-box:fill-box;transform-origin:50% 100%;animation:steam 3s ease-out infinite;opacity:0}
+  @keyframes steam{0%{transform:translateY(8px);opacity:0}30%{opacity:.85}100%{transform:translateY(-28px);opacity:0}}
+  .drop{transform-box:fill-box;transform-origin:center;animation:drop 1.5s ease-in infinite;opacity:0}
+  @keyframes drop{0%{transform:translateY(0);opacity:0}20%{opacity:1}90%{transform:translateY(26px);opacity:1}100%{transform:translateY(30px);opacity:0}}
+  .flame{transform-box:fill-box;transform-origin:50% 100%;animation:fl .5s ease-in-out infinite alternate}
+  @keyframes fl{to{transform:scaleY(1.16) skewX(-3deg)}}
+  .bubble{transform-box:fill-box;transform-origin:center;animation:bub 1.5s ease-in infinite;opacity:0}
+  @keyframes bub{0%{transform:scale(0);opacity:0}40%{opacity:1}100%{transform:scale(1.5);opacity:0}}
+  .sway{transform-box:view-box;animation:sway 4s ease-in-out infinite}
+  @keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2.5deg)}}
+  .fog{animation:fog 8s ease-in-out infinite}
+  @keyframes fog{0%,100%{transform:translateX(-12px)}50%{transform:translateX(14px)}}
+
+  /* Mockup 1 Accordion */
+  .acc-item{transition:flex-grow .45s cubic-bezier(.22,1,.36,1),background .35s}
+  /* Mockup 3 Page Flip */
+  @keyframes pageFlip{0%{transform:rotateY(-18deg) scale(.97);opacity:.5}100%{transform:rotateY(0) scale(1);opacity:1}}
+  .page-flip{animation:pageFlip .45s cubic-bezier(.22,1,.36,1)}
+  /* Mockup 6 Filmstrip */
+  .film-holes{background-image:radial-gradient(circle,#FBF6EE 4px,transparent 4.5px);background-size:20px 14px;background-repeat:repeat-x;background-position:center}
+</style>
+</head>
+<body class="antialiased">
+
+<!-- Shared Gradients -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-gur" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7C964"/><stop offset=".5" stop-color="#DE8F2C"/><stop offset="1" stop-color="#9A4613"/></linearGradient>
+    <linearGradient id="g-clay" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#CB7449"/><stop offset=".6" stop-color="#9E3B24"/><stop offset="1" stop-color="#6E2614"/></linearGradient>
+    <linearGradient id="g-wood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C08A57"/><stop offset="1" stop-color="#7A4A26"/></linearGradient>
+    <radialGradient id="g-brass" cx=".5" cy=".35" r=".75"><stop offset="0" stop-color="#F7DA86"/><stop offset=".55" stop-color="#D3A23C"/><stop offset="1" stop-color="#8F6519"/></radialGradient>
+    <radialGradient id="g-pitha" cx=".42" cy=".3" r=".8"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E3D2B4"/></radialGradient>
+    <radialGradient id="g-patali" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#DB9A4C"/><stop offset="1" stop-color="#7A3A12"/></radialGradient>
+    <pattern id="g-weave" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#D8B06A"/><path d="M0,2.5H10M0,7.5H10" stroke="#B98C46" stroke-width="2.4"/></pattern>
+  </defs>
+</svg>
+
+<main class="mx-auto min-h-screen w-full max-w-[480px] bg-canvas pb-20 shadow-2xl">
+  <!-- Sticky Gallery Navigator -->
+  <header class="sticky top-0 z-50 border-b border-[#E5CFAE] bg-canvas/95 px-3 py-2.5 backdrop-blur-md">
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="serif text-[17px] font-extrabold text-ink">১০টি ইউনিক স্টোরি ডিজাইন মকআপ</h1>
+        <p class="text-[11px] font-semibold text-gur">যেকোনো ডিজাইনে ট্যাপ করে লাইভ টেস্ট করুন</p>
+      </div>
+      <span class="rounded-full bg-clay px-2.5 py-1 text-[11px] font-bold text-[#FFF6E6]">১০টি কনসেপ্ট</span>
+    </div>
+    <div class="no-scrollbar mt-2 flex gap-1.5 overflow-x-auto pb-0.5">
+      <a href="#m1" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold text-ink">১. ভাঁজ-অ্যাকর্ডিয়ন</a>
+      <a href="#m2" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold text-ink">২. রস-থার্মোমিটার</a>
+      <a href="#m3" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold text-ink">৩. পুঁথির পাতা</a>
+      <a href="#m4" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold text-ink">৪. গাছির লাইভ চ্যাট</a>
+      <a href="#m5" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold text-ink">৫. কুয়াশা-ঘষা রিভিল</a>
+      <a href="#m6" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold text-ink">৬. সিনেমার ফিল্মস্ট্রিপ</a>
+      <a href="#m7" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold text-ink">৭. পোলারয়েড পোস্টকার্ড</a>
+      <a href="#m8" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold text-ink">৮. স্প্লিট-স্ক্রিন রিল</a>
+      <a href="#m9" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold text-ink">৯. রস→গুড় স্লাইডার</a>
+      <a href="#m10" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold text-ink">১০. বেন্টো মোজাইক</a>
+    </div>
+  </header>
+
+  <div class="space-y-10 px-4 pt-6">
+
+    <!-- ==================== MOCKUP 1: INTERACTIVE ACCORDION PLEATS ==================== -->
+    <section id="m1" class="scroll-mt-28">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ০১ · ইন্টারেক্টিভ ভাঁজ-অ্যাকর্ডিয়ন</span>
+        <span class="text-[11px] font-semibold text-ink/55">ট্যাপ করে খুলুন</span>
+      </div>
+      <div class="kantha rounded-[26px] bg-card p-3 shadow-md">
+        <div id="m1List" class="flex h-[320px] gap-1.5 overflow-hidden rounded-[20px]"></div>
+      </div>
+    </section>
+
+    <!-- ==================== MOCKUP 2: SAP-TO-GUR THERMOMETER / JAR METER ==================== -->
+    <section id="m2" class="scroll-mt-28">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ০২ · রসের তাপমাত্রা ও জার মিটার</span>
+        <span class="text-[11px] font-semibold text-ink/55">ট্যাপ বা স্লাইড করুন</span>
+      </div>
+      <div class="kantha rounded-[26px] bg-gradient-to-b from-[#FFFDF9] to-[#F7E8D4] p-4 shadow-md">
+        <div class="flex items-stretch gap-3">
+          <!-- Left Vertical Thermometer / Jar -->
+          <div class="flex w-16 flex-none flex-col items-center justify-between rounded-2xl border border-[#E2C496] bg-sand/70 py-2.5">
+            <span id="m2Temp" class="serif text-[13px] font-extrabold text-clay">১৮°C</span>
+            <div class="relative my-1.5 h-44 w-5 overflow-hidden rounded-full border border-[#C9A46D] bg-[#FFF8EC] p-0.5">
+              <div id="m2Fill" class="absolute bottom-0 left-0 right-0 rounded-full transition-all duration-500" style="height:20%;background:linear-gradient(180deg,#F7C964,#B85D19)"></div>
+            </div>
+            <div class="flex flex-col gap-1" id="m2Dots"></div>
+          </div>
+          <!-- Right Visual Stage -->
+          <div class="min-w-0 flex-1">
+            <div id="m2Stage" class="relative h-[220px] overflow-hidden rounded-2xl border border-[#E3C699]"></div>
+            <div class="mt-2.5 flex items-center justify-between gap-2">
+              <div>
+                <h3 id="m2Title" class="serif text-[17px] font-extrabold text-ink"></h3>
+                <p id="m2Line" class="text-[12.5px] text-ink/75"></p>
+              </div>
+              <button type="button" id="m2Next" class="flex-none rounded-xl bg-clay px-3 py-2 text-[12px] font-bold text-white">পরের ধাপ →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== MOCKUP 3: VINTAGE BENGALI PUTHI STORYBOOK ==================== -->
+    <section id="m3" class="scroll-mt-28">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ০৩ · গ্রামবাংলার পুঁথির পাতা</span>
+        <span class="text-[11px] font-semibold text-ink/55">পাতা উল্টান</span>
+      </div>
+      <div class="relative rounded-[24px] border-2 border-[#C79C63] bg-[#F5E6CA] p-4 shadow-[8px_10px_0_#C9A671]">
+        <div class="flex items-center justify-between border-b border-dashed border-[#B88B4E] pb-2">
+          <span id="m3PageNo" class="serif text-[12px] font-bold text-clay">পৃষ্ঠা ১ / ৫</span>
+          <div id="m3Tabs" class="flex gap-1"></div>
+        </div>
+        <div id="m3Body" class="page-flip mt-3"></div>
+      </div>
+    </section>
+
+    <!-- ==================== MOCKUP 4: LIVE GACHI WHATSAPP / DIARY DISPATCH ==================== -->
+    <section id="m4" class="scroll-mt-28">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ০৪ · গাছির লাইভ মেসেজ চ্যাট</span>
+        <span class="text-[11px] font-semibold text-ink/55">সর্বাধিক পঠিত স্টাইল</span>
+      </div>
+      <div class="overflow-hidden rounded-[26px] border border-[#D4C3A8] bg-[#EFEAE2] shadow-md">
+        <!-- Chat Header -->
+        <div class="flex items-center justify-between bg-[#2D5A3C] px-4 py-2.5 text-white">
+          <div class="flex items-center gap-2.5">
+            <div class="grid h-9 w-9 place-items-center rounded-full bg-[#F2B44A] text-[16px]">🧔🏾‍♂️</div>
+            <div>
+              <p class="text-[13.5px] font-bold leading-tight">গাছি করিম চাচা · রাজশাহী</p>
+              <p class="text-[10.5px] text-white/80">● সরাসরি তাফাল থেকে লাইভ আপডেট</p>
+            </div>
+          </div>
+          <span class="rounded-full bg-white/15 px-2 py-0.5 text-[10px] font-bold">আজকের ব্যাচ</span>
+        </div>
+        <!-- Chat Thread -->
+        <div id="m4Chat" class="max-h-[370px] space-y-2.5 overflow-y-auto p-3"></div>
+        <!-- Interactive Next Message Button -->
+        <div class="border-t border-[#DCD3C4] bg-[#F8F4EC] p-2.5 text-center">
+          <button type="button" id="m4More" class="w-full rounded-xl bg-leaf py-2 text-[12.5px] font-bold text-white shadow-sm">পরের সময়ের লাইভ আপডেট দেখুন ↓</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== MOCKUP 5: WIPE THE WINTER FOG REVEAL ==================== -->
+    <section id="m5" class="scroll-mt-28">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ০৫ · কুয়াশা সরিয়ে দেখুন</span>
+        <span class="text-[11px] font-semibold text-ink/55">স্লাইডার টানুন</span>
+      </div>
+      <div class="kantha rounded-[26px] bg-card p-3.5 shadow-md">
+        <div class="relative h-[240px] overflow-hidden rounded-[20px]">
+          <div id="m5Scene" class="h-full w-full"></div>
+          <!-- Dynamic Fog Layer controlled by Range Slider -->
+          <div id="m5Fog" class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center bg-[#EDF2EF]/95 backdrop-blur-md transition-opacity duration-200">
+            <span class="text-[28px]">🌫️</span>
+            <p class="serif mt-1 text-[16px] font-extrabold text-ink">ভোরের কুয়াশা সরিয়ে দেখুন</p>
+          </div>
+        </div>
+        <div class="mt-3">
+          <input id="m5Range" type="range" min="0" max="100" value="15" class="w-full accent-[#9E3B24]" />
+          <div class="mt-1 flex items-center justify-between text-[11.5px] font-bold text-ink/70">
+            <span>🌫️ ঘন কুয়াশা</span>
+            <span id="m5StepLabel" class="text-clay">ভোর ৪টা · প্রথম রস</span>
+            <span>🍯 আসল গুড়</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== MOCKUP 6: HORIZONTAL CINEMA FILMSTRIP ==================== -->
+    <section id="m6" class="scroll-mt-28">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ০৬ · গ্রামবাংলার সিনেমা ফিল্মস্ট্রিপ</span>
+        <span class="text-[11px] font-semibold text-ink/55">পাশে সোয়াইপ করুন →</span>
+      </div>
+      <div class="overflow-hidden rounded-[24px] bg-[#24130A] py-2 shadow-xl">
+        <div class="film-holes h-4 w-full opacity-80"></div>
+        <div id="m6Strip" class="no-scrollbar flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 py-2"></div>
+        <div class="film-holes h-4 w-full opacity-80"></div>
+      </div>
+    </section>
+
+    <!-- ==================== MOCKUP 7: POLAROID POSTCARDS ON JUTE BOARD ==================== -->
+    <section id="m7" class="scroll-mt-28">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ০৭ · দাদির চিঠি ও পোলারয়েড</span>
+        <span class="text-[11px] font-semibold text-ink/55">কার্ডে ট্যাপ করুন</span>
+      </div>
+      <div class="rounded-[26px] border-2 border-[#C8A46E] bg-[#E3C89C] p-4 shadow-inner">
+        <div id="m7Grid" class="grid grid-cols-2 gap-3"></div>
+      </div>
+    </section>
+
+    <!-- ==================== MOCKUP 8: SPLIT-SCREEN STICKY REEL + MICRO-CHIPS ==================== -->
+    <section id="m8" class="scroll-mt-28">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ০৮ · স্প্লিট-স্ক্রিন লাইভ রিল</span>
+        <span class="text-[11px] font-semibold text-ink/55">দ্রুত স্ক্যানযোগ্য</span>
+      </div>
+      <div class="kantha grid grid-cols-12 gap-2.5 rounded-[26px] bg-card p-3 shadow-md">
+        <div class="col-span-7">
+          <div id="m8Stage" class="h-[245px] overflow-hidden rounded-2xl"></div>
+        </div>
+        <div id="m8Btns" class="col-span-5 flex flex-col justify-between gap-1.5"></div>
+      </div>
+    </section>
+
+    <!-- ==================== MOCKUP 9: BEFORE -> AFTER SAP TO GUR SLIDER ==================== -->
+    <section id="m9" class="scroll-mt-28">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ০৯ · বিফোর → আফটার রূপান্তর</span>
+        <span class="text-[11px] font-semibold text-ink/55">মাঝের দাগ টানুন</span>
+      </div>
+      <div class="kantha rounded-[26px] bg-card p-3.5 shadow-md">
+        <div id="m9Box" class="relative h-[230px] select-none overflow-hidden rounded-[20px]">
+          <!-- AFTER: Golden Gur -->
+          <div class="absolute inset-0" id="m9After"></div>
+          <!-- BEFORE: Dawn Sap -->
+          <div id="m9Before" class="absolute inset-y-0 left-0 w-1/2 overflow-hidden border-r-2 border-white shadow-lg">
+            <div class="h-full w-[420px]" id="m9BeforeInner"></div>
+          </div>
+          <span class="pointer-events-none absolute left-2.5 top-2.5 rounded-full bg-ink/75 px-2.5 py-0.5 text-[10.5px] font-bold text-white">ভোর ৪টার কাঁচা রস</span>
+          <span class="pointer-events-none absolute right-2.5 top-2.5 rounded-full bg-clay/90 px-2.5 py-0.5 text-[10.5px] font-bold text-white">সন্ধ্যার খাঁটি গুড়</span>
+        </div>
+        <input id="m9Range" type="range" min="5" max="95" value="50" class="mt-3 w-full accent-[#9E3B24]" />
+        <p class="mt-1 text-center text-[12.5px] font-semibold text-ink/75">স্লাইডার টেনে দেখুন কীভাবে সাদাটে খেজুর রস সোনালি গুড়ে রূপান্তর হয়</p>
+      </div>
+    </section>
+
+    <!-- ==================== MOCKUP 10: LIVING BENTO MOSAIC ==================== -->
+    <section id="m10" class="scroll-mt-28">
+      <div class="mb-2 flex items-center justify-between">
+        <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ১০ · লিভিং বেন্টো মোজাইক</span>
+        <span class="text-[11px] font-semibold text-ink/55">ট্যাপ করে বড় করুন</span>
+      </div>
+      <div class="kantha rounded-[26px] bg-card p-3 shadow-md">
+        <div id="m10Grid" class="grid grid-cols-4 gap-2"></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+(function () {
+  const STEPS = [
+    { idx: 0, n: '১', time: 'ভোর ৪টা', temp: '১৮°C', fill: 20, title: 'ফোঁটায় ফোঁটায় প্রথম রস', line: 'রোদ ওঠার আগেই কুয়াশা ভেজা গাছে নামে টাটকা রস।', tag: 'গাছির ভোর', rot: '-2deg' },
+    { idx: 1, n: '২', time: 'সকাল ৮টা', temp: '৯৫°C', fill: 42, title: 'তাফালের কাঠের জ্বাল', line: 'কোনো চিনি বা হাইড্রোজ ছাড়াই মাটির চুলায় টগবগে জ্বাল।', tag: 'তাফালের ধোঁয়া', rot: '1.5deg' },
+    { idx: 2, n: '৩', time: 'দুপুর ১২টা', temp: '১১০°C', fill: 65, title: 'নরম দানা ও পাটালি', line: 'আঙুলের চাপেই ভাঙে, মুখে দিলেই মাখনের মতো গলে।', tag: 'কুলার রোদ', rot: '-1.5deg' },
+    { idx: 3, n: '৪', time: 'বিকেল ৩টা', temp: '৪৫°C', fill: 82, title: 'ঢেঁকির তালে পিঠার চাল', line: 'পারিবারিক তদারকিতে তৈরি হয় সন্ধ্যার পিঠার আয়োজন।', tag: 'উঠোনের কোণে', rot: '2deg' },
+    { idx: 4, n: '৫', time: 'সন্ধ্যা ৭টা', temp: 'উৎসব', fill: 100, title: 'গরম পিঠায় গুড়ের আসর', line: 'নকশী কাঁথায় এক পাটিতে তিন প্রজন্ম — আসল শীতের স্বাদ।', tag: 'সন্ধ্যার আসর', rot: '-1deg' }
+  ];
+
+  function sceneSVG(idx) {
+    if (idx === 0) return `<svg viewBox="0 0 200 150" class="h-full w-full object-cover"><rect width="200" height="150" fill="#DCE5DF"/><circle cx="160" cy="28" r="14" fill="#FFF9EA"/><path d="M0,128 Q50,118 100,126 T200,122 V150 H0Z" fill="#D4BE9B"/><path d="M74,150 L80,34 L92,34 L91,150Z" fill="#7A4A26"/><g class="sway" style="transform-origin:86px 34px" stroke="#2D5A3C" stroke-width="6" fill="none" stroke-linecap="round"><path d="M86,34 Q60,16 30,24"/><path d="M86,34 Q112,16 142,24"/></g><path d="M88,74 L116,80" stroke="#CDB676" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="118" cy="112" rx="14" ry="12" fill="url(#g-clay)"/><ellipse class="drop" cx="116" cy="82" rx="2.5" ry="3" fill="#FFF3D2"/><ellipse class="fog" cx="60" cy="110" rx="70" ry="8" fill="#fff" opacity=".55"/></svg>`;
+    if (idx === 1) return `<svg viewBox="0 0 200 150" class="h-full w-full object-cover"><rect width="200" height="150" fill="#FBE9CD"/><path class="steam" d="M75,85 c-5,-8 5,-14 0,-22" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M32,150 L44,98 L156,98 L168,150Z" fill="#B0623A"/><path class="flame" d="M96,150 C90,136 98,124 100,114 C106,126 110,136 106,150Z" fill="#F7A531"/><ellipse cx="100" cy="98" rx="72" ry="14" fill="#3E2A1E"/><ellipse cx="100" cy="97" rx="64" ry="11" fill="#E9A23C"/><circle class="bubble" cx="80" cy="98" r="4" fill="#FFD98A"/></svg>`;
+    if (idx === 2) return `<svg viewBox="0 0 200 150" class="h-full w-full object-cover"><rect width="200" height="150" fill="#FDF2DC"/><circle cx="166" cy="28" r="12" fill="#F7C55A"/><path d="M20,118 Q100,152 180,118 L170,68 Q100,50 30,68Z" fill="url(#g-weave)" stroke="#8E6326" stroke-width="3"/><path d="M38,104 Q62,70 92,102 Q66,112 38,104Z" fill="#4A200C"/><ellipse cx="138" cy="100" rx="20" ry="9" fill="url(#g-patali)"/></svg>`;
+    if (idx === 3) return `<svg viewBox="0 0 200 150" class="h-full w-full object-cover"><rect width="200" height="150" fill="#FBEBD0"/><rect y="106" width="200" height="44" fill="#E9C895"/><rect x="22" y="92" width="150" height="8" rx="4" fill="url(#g-wood)"/><path d="M120,124 L130,96 L140,124Z" fill="#6B4220"/><ellipse cx="36" cy="122" rx="14" ry="5" fill="#F7F1E4"/></svg>`;
+    return `<svg viewBox="0 0 200 150" class="h-full w-full object-cover"><rect width="200" height="150" fill="#3B1E13"/><circle cx="36" cy="40" r="24" fill="#FFD27A" opacity=".35"/><rect x="30" y="28" width="12" height="18" rx="4" fill="#FFE9B0"/><path d="M0,112 L200,104 L200,150 L0,150Z" fill="#F7E8CC"/><ellipse cx="100" cy="122" rx="46" ry="10" fill="url(#g-brass)"/><path d="M74,120 C76,100 112,100 114,120Z" fill="url(#g-pitha)"/><path d="M84,107 C90,101 100,101 104,107Z" fill="url(#g-gur)"/></svg>`;
+  }
+
+  /* 1. Accordion */
+  let m1Idx = 0;
+  function renderM1() {
+    document.getElementById('m1List').innerHTML = STEPS.map((s) => {
+      const open = s.idx === m1Idx;
+      return `<div data-m1="${s.idx}" class="acc-item relative cursor-pointer overflow-hidden rounded-2xl ${open ? 'flex-[5]' : 'flex-[1] bg-sand'}">
+        <div class="h-full w-full">${sceneSVG(s.idx)}</div>
+        <div class="absolute inset-0 ${open ? 'bg-gradient-to-t from-ink/85 via-transparent to-ink/30' : 'bg-ink/55'} flex flex-col justify-between p-2.5 text-white">
+          <span class="w-fit rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold backdrop-blur-sm">${open ? s.time : s.n}</span>
+          ${open ? `<div><h3 class="serif text-[17px] font-extrabold text-[#FFE5A8]">${s.title}</h3><p class="mt-0.5 text-[12px] text-white/90">${s.line}</p></div>` : `<span class="serif text-[11px] font-bold [writing-mode:vertical-rl] rotate-180 opacity-90">${s.time}</span>`}
+        </div>
+      </div>`;
+    }).join('');
+  }
+  document.getElementById('m1List').addEventListener('click', (e) => {
+    const el = e.target.closest('[data-m1]');
+    if (el) { m1Idx = +el.dataset.m1; renderM1(); }
+  });
+  renderM1();
+
+  /* 2. Thermometer */
+  let m2Idx = 0;
+  function renderM2() {
+    const s = STEPS[m2Idx];
+    document.getElementById('m2Temp').textContent = s.temp;
+    document.getElementById('m2Fill').style.height = s.fill + '%';
+    document.getElementById('m2Stage').innerHTML = sceneSVG(s.idx);
+    document.getElementById('m2Title').textContent = `${s.time} · ${s.title}`;
+    document.getElementById('m2Line').textContent = s.line;
+    document.getElementById('m2Dots').innerHTML = STEPS.map((x) => `<button data-m2="${x.idx}" class="h-2.5 w-2.5 rounded-full ${x.idx === m2Idx ? 'bg-clay scale-125' : 'bg-[#D6B88D]'}"></button>`).join('');
+  }
+  document.getElementById('m2Next').addEventListener('click', () => { m2Idx = (m2Idx + 1) % STEPS.length; renderM2(); });
+  document.getElementById('m2Dots').addEventListener('click', (e) => { const b = e.target.closest('[data-m2]'); if (b) { m2Idx = +b.dataset.m2; renderM2(); } });
+  renderM2();
+
+  /* 3. Puthi Page Flip */
+  let m3Idx = 0;
+  function renderM3() {
+    const s = STEPS[m3Idx];
+    document.getElementById('m3PageNo').textContent = `পৃষ্ঠা ${s.n} / ৫ · ${s.time}`;
+    document.getElementById('m3Tabs').innerHTML = STEPS.map((x) => `<button data-m3="${x.idx}" class="h-6 w-6 rounded-md text-[11px] font-bold ${x.idx === m3Idx ? 'bg-clay text-white' : 'bg-white/60 text-ink'}">${x.n}</button>`).join('');
+    const body = document.getElementById('m3Body');
+    body.classList.remove('page-flip'); void body.offsetWidth; body.classList.add('page-flip');
+    body.innerHTML = `<div class="h-[175px] overflow-hidden rounded-xl border border-[#C9A671]">${sceneSVG(s.idx)}</div>
+      <div class="mt-3 flex items-center justify-between gap-2">
+        <div><h3 class="serif text-[18px] font-extrabold text-[#6E2A12]">${s.title}</h3><p class="text-[12.5px] text-ink/80">${s.line}</p></div>
+        <button data-m3-next="1" class="flex-none rounded-lg border border-clay px-3 py-1.5 text-[12px] font-bold text-clay">পাতা উল্টান →</button>
+      </div>`;
+  }
+  document.getElementById('m3').addEventListener('click', (e) => {
+    const t = e.target.closest('[data-m3]');
+    if (t) { m3Idx = +t.dataset.m3; renderM3(); return; }
+    if (e.target.closest('[data-m3-next]')) { m3Idx = (m3Idx + 1) % STEPS.length; renderM3(); }
+  });
+  renderM3();
+
+  /* 4. Live Gachi Chat */
+  let m4Count = 2;
+  function renderM4() {
+    document.getElementById('m4Chat').innerHTML = STEPS.slice(0, m4Count).map((s) => `
+      <div class="max-w-[88%] rounded-2xl rounded-tl-sm bg-white p-2 shadow-sm">
+        <div class="h-[115px] overflow-hidden rounded-xl">${sceneSVG(s.idx)}</div>
+        <p class="mt-1.5 text-[12.5px] font-bold text-ink">${s.title}</p>
+        <p class="text-[11.5px] text-ink/75">${s.line}</p>
+        <p class="mt-0.5 text-right text-[10px] font-semibold text-leaf">${s.time} · ✓✓</p>
+      </div>`).join('');
+    const btn = document.getElementById('m4More');
+    btn.textContent = m4Count < 5 ? `পরের সময়ের লাইভ আপডেট দেখুন (${m4Count}/৫) ↓` : 'আবার শুরু থেকে দেখুন ↺';
+  }
+  document.getElementById('m4More').addEventListener('click', () => { m4Count = m4Count < 5 ? m4Count + 1 : 1; renderM4(); });
+  renderM4();
+
+  /* 5. Fog Wipe */
+  document.getElementById('m5Scene').innerHTML = sceneSVG(0);
+  document.getElementById('m5Range').addEventListener('input', (e) => {
+    const v = +e.target.value;
+    document.getElementById('m5Fog').style.opacity = String(1 - v / 100);
+    const stepIdx = Math.min(4, Math.floor(v / 21));
+    document.getElementById('m5Scene').innerHTML = sceneSVG(stepIdx);
+    document.getElementById('m5StepLabel').textContent = `${STEPS[stepIdx].time} · ${STEPS[stepIdx].title}`;
+  });
+
+  /* 6. Filmstrip */
+  document.getElementById('m6Strip').innerHTML = STEPS.map((s) => `
+    <div class="w-[240px] flex-none snap-center overflow-hidden rounded-xl border border-[#5A341C] bg-[#FFFDF9]">
+      <div class="h-[145px]">${sceneSVG(s.idx)}</div>
+      <div class="p-2.5"><span class="text-[10.5px] font-extrabold text-clay">${s.time}</span><h3 class="serif text-[14.5px] font-extrabold text-ink">${s.title}</h3></div>
+    </div>`).join('');
+
+  /* 7. Polaroid Postcards */
+  let m7Sel = 0;
+  function renderM7() {
+    document.getElementById('m7Grid').innerHTML = STEPS.slice(0, 4).map((s) => `
+      <div data-m7="${s.idx}" style="transform:rotate(${s.rot})" class="cursor-pointer rounded-xl bg-white p-2 shadow-md transition ${s.idx === m7Sel ? 'ring-2 ring-clay scale-[1.03]' : 'opacity-90'}">
+        <div class="h-[95px] overflow-hidden rounded-lg">${sceneSVG(s.idx)}</div>
+        <p class="serif mt-1.5 text-[12px] font-extrabold text-ink">${s.time}</p>
+        <p class="text-[10.5px] text-ink/70">${s.title}</p>
+      </div>`).join('');
+  }
+  document.getElementById('m7Grid').addEventListener('click', (e) => { const c = e.target.closest('[data-m7]'); if (c) { m7Sel = +c.dataset.m7; renderM7(); } });
+  renderM7();
+
+  /* 8. Split Screen Reel */
+  let m8Idx = 0;
+  function renderM8() {
+    const s = STEPS[m8Idx];
+    document.getElementById('m8Stage').innerHTML = `<div class="relative h-full w-full">${sceneSVG(s.idx)}<div class="absolute inset-x-0 bottom-0 bg-ink/80 p-2 text-white"><p class="serif text-[13px] font-bold text-[#FFE5A8]">${s.title}</p><p class="text-[10.5px]">${s.line}</p></div></div>`;
+    document.getElementById('m8Btns').innerHTML = STEPS.map((x) => `<button data-m8="${x.idx}" class="rounded-xl px-2.5 py-2 text-left text-[11px] font-bold transition ${x.idx === m8Idx ? 'bg-clay text-white shadow' : 'bg-sand text-ink'}">${x.n}. ${x.time}</button>`).join('');
+  }
+  document.getElementById('m8Btns').addEventListener('click', (e) => { const b = e.target.closest('[data-m8]'); if (b) { m8Idx = +b.dataset.m8; renderM8(); } });
+  renderM8();
+
+  /* 9. Before / After Slider */
+  document.getElementById('m9After').innerHTML = sceneSVG(4);
+  document.getElementById('m9BeforeInner').innerHTML = sceneSVG(0);
+  document.getElementById('m9Range').addEventListener('input', (e) => {
+    document.getElementById('m9Before').style.width = e.target.value + '%';
+  });
+
+  /* 10. Bento Mosaic */
+  let m10Idx = 0;
+  function renderM10() {
+    const hero = STEPS[m10Idx];
+    const others = STEPS.filter((s) => s.idx !== m10Idx);
+    document.getElementById('m10Grid').innerHTML = `
+      <div class="col-span-4 relative h-[185px] overflow-hidden rounded-2xl border border-[#E5C999]">
+        ${sceneSVG(hero.idx)}
+        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent p-3 text-white">
+          <span class="text-[10.5px] font-bold text-[#FFE19C]">${hero.time} · ${hero.tag}</span>
+          <h3 class="serif text-[17px] font-extrabold">${hero.title}</h3>
+        </div>
+      </div>
+      ${others.map((o) => `<button data-m10="${o.idx}" class="col-span-1 relative h-[76px] overflow-hidden rounded-xl border border-[#E5C999]">${sceneSVG(o.idx)}<span class="absolute inset-x-0 bottom-0 bg-ink/75 py-0.5 text-[9.5px] font-bold text-white">${o.time}</span></button>`).join('')}`;
+  }
+  document.getElementById('m10Grid').addEventListener('click', (e) => { const b = e.target.closest('[data-m10]'); if (b) { m10Idx = +b.dataset.m10; renderM10(); } });
+  renderM10();
+})();
+</script>
+</body>
+</html>

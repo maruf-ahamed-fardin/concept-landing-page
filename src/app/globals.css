@@ -1,0 +1,1155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Shohid Salam';
+  src: url('/fonts/shohid-salam.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alinur Tarunya';
+  src: url('/fonts/alinur-tarunya.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --canvas: #FBF6EE;
+  --card: #FFFDF9;
+  --sand: #F4E9D8;
+  --ink: #3B1F0E;
+  --clay: #9E3B24;
+  --gur: #B85D19;
+  --leaf: #2D5A3C;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Alinur Tarunya', 'Anek Bangla', sans-serif;
+  font-synthesis-weight: none;
+  color: var(--ink);
+  background-color: #EADBC4;
+  background-image:
+    radial-gradient(circle at 50% 25%, rgba(255, 244, 224, 0.45), rgba(158, 59, 36, 0.06) 80%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%23B85D19' stroke-opacity='0.065' stroke-width='1'%3E%3Cpath d='M0 12h48M0 36h48M12 0v48M36 0v48'/%3E%3Cpath d='M6 6l12 12M30 6l12 12M6 30l12 12M30 30l12 12' stroke-opacity='0.045'/%3E%3C/g%3E%3C/svg%3E");
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page {
+  background-color: #FAF3E6;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg stroke='%232D5A3C' stroke-opacity='0.055' stroke-width='1.35'%3E%3Cpath d='M26 88 Q54 54 88 24'/%3E%3Cpath d='M36 76 l-6 -14 M36 76 l14 5 M48 63 l-5 -13 M48 63 l13 5 M60 51 l-4 -12 M60 51 l12 4 M72 39 l-3 -10 M72 39 l10 3'/%3E%3C/g%3E%3Cg stroke='%23B85D19' stroke-opacity='0.068' stroke-width='1.35'%3E%3Cellipse cx='182' cy='154' rx='11' ry='3'/%3E%3Cpath d='M173 156 L174 161 C162 166 160 184 169 192 C176 198 188 198 195 192 C204 184 202 166 190 161 L191 156'/%3E%3Cpath d='M165 174 Q182 180 199 174' stroke-dasharray='2.5 2.5'/%3E%3Cpath d='M182 140 C185 145 185 148 182 150 C179 148 179 145 182 140Z'/%3E%3C/g%3E%3Cg stroke='%23B85D19' stroke-opacity='0.05' stroke-width='1.1'%3E%3Cpath d='M180 44 l12 12 -12 12 -12 -12Z M58 176 l10 10 -10 10 -10 -10Z'/%3E%3Ccircle cx='180' cy='56' r='3'/%3E%3Ccircle cx='58' cy='186' r='2.5'/%3E%3Ccircle cx='120' cy='120' r='1.8'/%3E%3Ccircle cx='120' cy='120' r='12' stroke-dasharray='2 4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(212, 228, 219, 0.42) 0%, rgba(255, 232, 178, 0.34) 22%, rgba(250, 241, 224, 0.22) 55%, rgba(242, 212, 166, 0.32) 84%, rgba(232, 192, 138, 0.36) 100%);
+  background-repeat: repeat, no-repeat;
+  background-size: 240px 240px, 100% 100%;
+}
+
+.serif,
+.script-font,
+h1,
+h2,
+h3 {
+  font-family: 'Shohid Salam', 'Tiro Bangla', serif;
+  font-weight: 800;
+  letter-spacing: 0.005em;
+}
+
+/* Nakshi Kantha running stitch */
+.kantha {
+  outline: 1.5px dashed rgba(184, 93, 25, 0.32);
+  outline-offset: -6px;
+}
+
+.kantha-sm {
+  outline: 1.2px dashed rgba(184, 93, 25, 0.32);
+  outline-offset: -4px;
+}
+
+/* Watermarks */
+.wm {
+  position: absolute;
+  color: var(--ink);
+  opacity: 0.075;
+  pointer-events: none;
+  z-index: 0;
+  animation: floaty 16s ease-in-out infinite;
+}
+
+.wm.alt {
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+
+@keyframes floaty {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+
+/* ================= CINEMATIC WINTER FOG REVEAL PRELOADER ================= */
+.preloader-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mist-base {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(225, 231, 234, 0.95) 0%,
+    rgba(241, 244, 245, 0.92) 48%,
+    rgba(231, 236, 239, 0.88) 100%
+  );
+  transition: opacity 1.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity;
+}
+
+.mist-layer {
+  position: absolute;
+  inset: -35%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.mist-layer-1 {
+  opacity: 0.9;
+  transition:
+    transform 1.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 1.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mist-layer-2 {
+  opacity: 0.86;
+  transition:
+    transform 1.65s cubic-bezier(0.22, 1, 0.36, 1) 0.05s,
+    opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.05s;
+}
+
+.mist-layer-3 {
+  opacity: 0.82;
+  transition:
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.08s,
+    opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.08s;
+}
+
+.mist-tex {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/winter-mist.webp');
+  background-repeat: repeat;
+  will-change: transform;
+}
+
+.mist-tex-1 {
+  background-size: 560px 560px;
+  filter: brightness(0.91);
+  animation: mistGlideLeft 18s linear infinite;
+}
+
+.mist-tex-2 {
+  background-size: 780px 780px;
+  background-position: 180px 110px;
+  animation: mistGlideRight 22s linear infinite;
+}
+
+.mist-tex-3 {
+  background-size: 1040px 1040px;
+  background-position: -120px 240px;
+  filter: brightness(1.04);
+  animation: mistGlideUp 16s linear infinite;
+}
+
+.preloader-stage.is-breeze .mist-base {
+  opacity: 0;
+}
+
+.preloader-stage.is-breeze .mist-layer-1 {
+  transform: translate3d(-14%, -18%, 0) scale(1.08);
+  opacity: 0;
+}
+
+.preloader-stage.is-breeze .mist-layer-2 {
+  transform: translate3d(16%, -22%, 0) scale(1.12);
+  opacity: 0;
+}
+
+.preloader-stage.is-breeze .mist-layer-3 {
+  transform: translate3d(-6%, -28%, 0) scale(1.15);
+  opacity: 0;
+}
+
+@keyframes mistGlideLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-16%, -6%, 0);
+  }
+}
+
+@keyframes mistGlideRight {
+  0% {
+    transform: translate3d(0, 0, 0) scaleX(-1);
+  }
+  100% {
+    transform: translate3d(14%, -8%, 0) scaleX(-1);
+  }
+}
+
+@keyframes mistGlideUp {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-8%, -14%, 0);
+  }
+}
+
+.hero-reveal {
+  opacity: 0.45;
+  transform: scale(1.012);
+  transition:
+    opacity 1.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.45s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.hero-reveal.is-clear {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* GIF-style video container */
+.gifvid {
+  position: relative;
+  overflow: hidden;
+  background: var(--sand);
+  isolation: isolate;
+}
+
+.gifvid>svg.scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.gifvid>video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gifvid>video.is-live {
+  opacity: 1;
+}
+
+.gifvid video::-webkit-media-controls {
+  display: none !important;
+}
+
+.gifpill {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px 4px 8px;
+  border-radius: 999px;
+  background: rgba(59, 31, 14, 0.72);
+  color: #FFF6E6;
+  font: 600 10px/1.2 'Alinur Tarunya', 'Anek Bangla', sans-serif;
+  letter-spacing: 0.08em;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.gifpill i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FF6A3D;
+  animation: blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.is-paused * {
+  animation-play-state: paused !important;
+}
+
+/* ---------- Cinemagraph animations ---------- */
+.flow {
+  stroke-dasharray: 12 20;
+  animation: flow 1s linear infinite;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -64;
+  }
+}
+
+.drop {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: drop 1.6s cubic-bezier(0.55, 0, 0.9, 0.5) infinite;
+  opacity: 0;
+}
+
+.drop.d2 {
+  animation-delay: 0.55s;
+}
+
+.drop.d3 {
+  animation-delay: 1.1s;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+    transform: translateY(0) scale(0.9, 1);
+  }
+
+  78% {
+    transform: translateY(var(--d, 40px)) scale(0.8, 1.3);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(var(--d, 40px)) scale(1.6, 0.25);
+    opacity: 0;
+  }
+}
+
+.hang {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: hang 2.6s ease-in-out infinite;
+}
+
+.hang.h2 {
+  animation-delay: 0.9s;
+}
+
+.hang.h3 {
+  animation-delay: 1.7s;
+}
+
+@keyframes hang {
+
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+
+  55% {
+    transform: scaleY(1.15);
+  }
+}
+
+.steam {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: steam 3.4s ease-out infinite;
+  opacity: 0;
+}
+
+.steam.s2 {
+  animation-delay: 0.9s;
+}
+
+.steam.s3 {
+  animation-delay: 1.7s;
+}
+
+.steam.s4 {
+  animation-delay: 2.4s;
+}
+
+@keyframes steam {
+  0% {
+    transform: translateY(10px) scaleX(0.85);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: translateY(-34px) scaleX(1.2);
+    opacity: 0;
+  }
+}
+
+.bubble {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bubble 1.7s ease-in infinite;
+  opacity: 0;
+}
+
+.bubble.b2 {
+  animation-delay: 0.35s;
+}
+
+.bubble.b3 {
+  animation-delay: 0.8s;
+}
+
+.bubble.b4 {
+  animation-delay: 1.15s;
+}
+
+.bubble.b5 {
+  animation-delay: 1.45s;
+}
+
+@keyframes bubble {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flicker 0.55s ease-in-out infinite alternate;
+}
+
+.flame.f2 {
+  animation-duration: 0.42s;
+}
+
+.flame.f3 {
+  animation-duration: 0.7s;
+}
+
+@keyframes flicker {
+  0% {
+    transform: scaleY(0.9) skewX(2deg);
+  }
+
+  50% {
+    transform: scaleY(1.15) skewX(-3deg);
+  }
+
+  100% {
+    transform: scaleY(0.95) skewX(1deg);
+  }
+}
+
+.glow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: glow 1.8s ease-in-out infinite;
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+.fog {
+  animation: fog 9s ease-in-out infinite;
+}
+
+.fog.fog-b {
+  animation-duration: 12s;
+  animation-direction: reverse;
+}
+
+@keyframes fog {
+
+  0%,
+  100% {
+    transform: translateX(-14px);
+  }
+
+  50% {
+    transform: translateX(16px);
+  }
+}
+
+.sway {
+  transform-box: view-box;
+  animation: sway 4.5s ease-in-out infinite;
+}
+
+@keyframes sway {
+
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+
+.rock {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rock 3.6s ease-in-out infinite;
+}
+
+@keyframes rock {
+
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(-2.5deg);
+  }
+}
+
+.pool {
+  transform-box: fill-box;
+  transform-origin: 50% 30%;
+  animation: pool 2.4s ease-in-out infinite;
+}
+
+@keyframes pool {
+
+  0%,
+  100% {
+    transform: scale(0.94, 0.9);
+  }
+
+  50% {
+    transform: scale(1.04, 1.08);
+  }
+}
+
+.splash {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: splash 0.9s ease-out infinite;
+}
+
+@keyframes splash {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0.2;
+  }
+}
+
+.shine {
+  animation: shine 4s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(0);
+  }
+
+  65%,
+  100% {
+    transform: translateX(560px);
+  }
+}
+
+.twinkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 1.8s ease-in-out infinite;
+}
+
+.twinkle.t2 {
+  animation-delay: 0.6s;
+}
+
+.twinkle.t3 {
+  animation-delay: 1.2s;
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 18s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Minimal 6-Gur Orbital Spotlight ---------- */
+@keyframes gurSpotlightIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.gur-spotlight-enter {
+  animation: gurSpotlightIn 0.48s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.shimmer {
+  animation: shimmer 2.8s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.bob {
+  transform-box: fill-box;
+  transform-origin: 20% 100%;
+  animation: bob 1.6s ease-in-out infinite;
+}
+
+@keyframes bob {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-3px) rotate(-10deg);
+  }
+}
+
+.walk {
+  transform-box: fill-box;
+  animation: walk 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes walk {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-1.8px);
+  }
+}
+
+.dheki {
+  transform-box: view-box;
+  animation: dheki 1.5s infinite;
+}
+
+@keyframes dheki {
+
+  0%,
+  12% {
+    transform: rotate(-2deg);
+    animation-timing-function: ease-out;
+  }
+
+  55%,
+  80% {
+    transform: rotate(10deg);
+    animation-timing-function: cubic-bezier(0.7, 0, 1, 0.6);
+  }
+
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+
+.press {
+  animation: press 1.5s infinite;
+}
+
+@keyframes press {
+
+  0%,
+  12% {
+    transform: translateY(0);
+  }
+
+  55%,
+  80% {
+    transform: translateY(3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.puff {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: puff 1.5s ease-out infinite;
+  opacity: 0;
+}
+
+.puff.p2 {
+  animation-delay: 0.05s;
+}
+
+.puff.p3 {
+  animation-delay: 0.1s;
+}
+
+@keyframes puff {
+  0% {
+    transform: translateY(0) scale(0.4);
+    opacity: 0.95;
+  }
+
+  45% {
+    transform: translateY(-14px) scale(1.4);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.feed {
+  transform-box: fill-box;
+  animation: feed 1.5s ease-in-out infinite;
+}
+
+@keyframes feed {
+
+  0%,
+  10% {
+    transform: translate(5px, 5px);
+  }
+
+  45%,
+  72% {
+    transform: translate(0, 0);
+  }
+
+  88%,
+  100% {
+    transform: translate(5px, 5px);
+  }
+}
+
+.nudge {
+  display: inline-block;
+  animation: nudge 1.4s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.floral-bg {
+  background-color: transparent;
+}
+
+.rd-card {
+  background: #FFFBF3;
+  border: 2px solid #E9CB8E;
+  box-shadow: 0 18px 36px -22px rgba(110, 42, 18, 0.55), inset 0 0 0 1px #FFF6E4;
+  outline: 1.3px dashed rgba(184, 93, 25, 0.32);
+  outline-offset: -8px;
+}
+
+.rd-node {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Shohid Salam', 'Tiro Bangla', serif;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1;
+  color: #7A4A26;
+  background: radial-gradient(circle at 40% 35%, #FFF7E6, #EAD3A8);
+  box-shadow: 0 0 0 3px #FBF1DF, 0 0 0 4.5px #E3C792, 0 6px 14px -4px rgba(59, 31, 14, 0.45);
+  transition: all 0.35s ease;
+}
+
+.rd-node.lit {
+  color: #FFF4E2;
+  background: radial-gradient(circle at 40% 35%, #D2553A, #9E3B24 60%, #7A2A18);
+  box-shadow: 0 0 0 3px #FBE3C8, 0 0 0 4.5px #C9573A, 0 0 20px 5px rgba(242, 180, 74, 0.45), 0 6px 14px -4px rgba(59, 31, 14, 0.6);
+  transform: scale(1.08);
+}
+
+/* Pills, buttons, steppers */
+.pill {
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 600;
+  font-size: 13px;
+  background: var(--card);
+  border: 1px solid #E7D3B6;
+  color: var(--ink);
+  transition: all 0.2s;
+  min-height: 40px;
+}
+
+.pill[aria-pressed="true"] {
+  background: var(--ink);
+  color: #FFF4E2;
+  border-color: var(--ink);
+}
+
+.btn-main {
+  background: linear-gradient(180deg, #B85232 0%, #9E3B24 55%, #822C18 100%);
+  color: #FFF8EE;
+  box-shadow: 0 12px 24px -10px rgba(158, 59, 36, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-main:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn-leaf {
+  background: linear-gradient(180deg, #3A7150, #2D5A3C);
+  color: #F3FFF5;
+  box-shadow: 0 10px 22px -12px rgba(45, 90, 60, 0.8);
+}
+
+.gurtext {
+  background: linear-gradient(180deg, #E29530 0%, #B85D19 52%, #8F321B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Receipt jagged edge */
+.receipt-paper {
+  background: #FFFDF7;
+  background-image: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 27px,
+      rgba(184, 93, 25, 0.08) 27px,
+      rgba(184, 93, 25, 0.08) 28px);
+  box-shadow: 0 20px 42px -24px rgba(59, 31, 14, 0.55);
+}
+
+.bump {
+  animation: bump 0.35s ease;
+}
+
+@keyframes bump {
+  40% {
+    transform: scale(1.12);
+  }
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] .chev {
+  transform: rotate(45deg);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@keyframes dialSpinCW {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dial-sweep-cw {
+  animation: dialSpinCW 18s linear infinite;
+}
+
+.dial-sweep-ccw {
+  animation: dialSpinCW 12s linear infinite reverse;
+}
+
+@keyframes gurRipple {
+  0% {
+    transform: scale(0.82);
+    opacity: 0.62;
+  }
+  70% {
+    opacity: 0.16;
+  }
+  100% {
+    transform: scale(1.36);
+    opacity: 0;
+  }
+}
+
+.gur-ripple {
+  animation: gurRipple 3.2s cubic-bezier(0.18, 0.72, 0.36, 1) infinite;
+}
+
+.gur-ripple.r2 {
+  animation-delay: 1.06s;
+}
+
+.gur-ripple.r3 {
+  animation-delay: 2.12s;
+}
+
+@keyframes gurBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.036);
+  }
+}
+
+.gur-center-breathe {
+  animation: gurBreathe 4.2s ease-in-out infinite;
+}
+
+@keyframes gurSheen {
+  0% {
+    transform: translateX(-160%) skewX(-22deg);
+    opacity: 0;
+  }
+  22% {
+    opacity: 0.42;
+  }
+  52%,
+  100% {
+    transform: translateX(260%) skewX(-22deg);
+    opacity: 0;
+  }
+}
+
+.gur-sheen {
+  animation: gurSheen 4.4s ease-in-out infinite;
+}
+
+@keyframes beamFlow {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 24;
+  }
+}
+
+.gur-beam-flow {
+  animation: beamFlow 1.1s linear infinite;
+}
+
+@keyframes artMarquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.art-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: artMarquee 32s linear infinite;
+  will-change: transform;
+}
+
+.art-marquee-wrap:hover .art-marquee-track,
+.art-marquee-wrap:focus-within .art-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes vineSway {
+  0%,
+  100% {
+    transform: rotate(-1.6deg) translateX(0);
+  }
+  50% {
+    transform: rotate(2deg) translateX(1.5px);
+  }
+}
+
+.vine-sway {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: vineSway 5.6s ease-in-out infinite;
+}
+
+.vine-sway.alt {
+  animation-delay: -2.4s;
+}
+
+@keyframes leafFlutter {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+}
+
+.vine-leaf {
+  transform-box: fill-box;
+  transform-origin: 90% 85%;
+  animation: leafFlutter 3.8s ease-in-out infinite;
+}
+
+.vine-leaf.r {
+  transform-origin: 10% 85%;
+  animation-delay: -1.6s;
+}
+
+@keyframes budBloom {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 1;
+  }
+}
+
+.vine-bud {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: budBloom 3.2s ease-in-out infinite;
+}
+
+@keyframes vineFlow {
+  from {
+    stroke-dashoffset: 120;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.vine-shimmer {
+  animation: vineFlow 4.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader-stage {
+    display: none;
+  }
+
+  .hero-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

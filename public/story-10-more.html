@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>আরও ১০টি প্রিমিয়াম ওয়ার্ডপ্রেস-স্টাইল মকআপ (১১–২০) — শাহিন ই মার্ট</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { canvas:'#FBF6EE', card:'#FFFDF9', sand:'#F4E9D8', ink:'#3B1F0E', clay:'#9E3B24', gur:'#B85D19', leaf:'#2D5A3C' },
+        fontFamily: { serif:['"Noto Serif Bengali"','serif'], body:['"Hind Siliguri"','sans-serif'] }
+      }
+    }
+  };
+</script>
+<style>
+  body{font-family:'Hind Siliguri',sans-serif;background:#E8D8C0;color:#3B1F0E;margin:0}
+  .serif{font-family:'Noto Serif Bengali',serif}
+  .no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}
+  .steam{transform-box:fill-box;transform-origin:50% 100%;animation:steam 3s ease-out infinite;opacity:0}
+  @keyframes steam{0%{transform:translateY(8px);opacity:0}30%{opacity:.85}100%{transform:translateY(-28px);opacity:0}}
+  .drop{transform-box:fill-box;transform-origin:center;animation:drop 1.5s ease-in infinite;opacity:0}
+  @keyframes drop{0%{transform:translateY(0);opacity:0}20%{opacity:1}90%{transform:translateY(26px);opacity:1}100%{transform:translateY(30px);opacity:0}}
+  .flame{transform-box:fill-box;transform-origin:50% 100%;animation:fl .5s ease-in-out infinite alternate}
+  @keyframes fl{to{transform:scaleY(1.16) skewX(-3deg)}}
+  .bubble{transform-box:fill-box;transform-origin:center;animation:bub 1.5s ease-in infinite;opacity:0}
+  @keyframes bub{0%{transform:scale(0);opacity:0}40%{opacity:1}100%{transform:scale(1.5);opacity:0}}
+  .sway{transform-box:view-box;animation:sway 4s ease-in-out infinite}
+  @keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2.5deg)}}
+  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .marquee-track{display:flex;width:max-content;animation:marquee 16s linear infinite}
+
+  /* 3D Flip Cards (#16) */
+  .flip-wrap{perspective:900px}
+  .flip-inner{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.22,1,.36,1);transform-style:preserve-3d}
+  .flip-wrap.is-flipped .flip-inner{transform:rotateY(180deg)}
+  .flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  .flip-back{transform:rotateY(180deg)}
+</style>
+</head>
+<body class="antialiased">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-gur" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7C964"/><stop offset="1" stop-color="#9A4613"/></linearGradient>
+    <linearGradient id="g-clay" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#CB7449"/><stop offset="1" stop-color="#6E2614"/></linearGradient>
+    <radialGradient id="g-patali" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#DB9A4C"/><stop offset="1" stop-color="#7A3A12"/></radialGradient>
+    <pattern id="g-weave" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#D8B06A"/><path d="M0,2.5H10M0,7.5H10" stroke="#B98C46" stroke-width="2.4"/></pattern>
+  </defs>
+</svg>
+
+<main class="mx-auto min-h-screen w-full max-w-[480px] bg-canvas pb-20 shadow-2xl">
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 border-b border-[#E5CFAE] bg-canvas/95 px-3 py-2.5 backdrop-blur-md">
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="serif text-[17px] font-extrabold text-ink">আরও ১০টি ওয়ার্ডপ্রেস-স্টাইল মকআপ (১১–২০)</h1>
+        <p class="text-[11px] font-semibold text-gur">কম লেখা · বেশি ভিজ্যুয়াল · হাই-কনভার্টিং D2C স্টাইল</p>
+      </div>
+      <span class="rounded-full bg-leaf px-2.5 py-1 text-[11px] font-bold text-white">ব্যাচ ২</span>
+    </div>
+    <div class="no-scrollbar mt-2 flex gap-1.5 overflow-x-auto pb-0.5">
+      <a href="#m11" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold">১১. ৯:১৬ রিলস</a>
+      <a href="#m12" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold">১২. লাক্সারি এডিটোরিয়াল</a>
+      <a href="#m13" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold">১৩. হটস্পট অ্যানাটমি</a>
+      <a href="#m14" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold">১৪. মারকিউ + প্রুফ</a>
+      <a href="#m15" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold">১৫. ডার্ক গোল্ড লাক্সারি</a>
+      <a href="#m16" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold">১৬. ৩ডি ফ্লিপ কার্ড</a>
+      <a href="#m17" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold">১৭. প্রগ্রেস রিং স্পটলাইট</a>
+      <a href="#m18" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold">১৮. ২-ট্যাপ গুড় ফাইন্ডার</a>
+      <a href="#m19" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold">১৯. ম্যাগাজিন ওভারল্যাপ</a>
+      <a href="#m20" class="flex-none rounded-full border border-[#E2C8A0] bg-card px-2.5 py-1 text-[11px] font-bold">২০. ৩-সেকেন্ড প্রমিস</a>
+    </div>
+  </header>
+
+  <div class="space-y-10 px-4 pt-6">
+
+    <!-- ==================== #11: 9:16 VERTICAL VIDEO / GIF REELS ==================== -->
+    <section id="m11" class="scroll-mt-28">
+      <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ১১ · ৯:১৬ ভার্টিক্যাল রিলস (TikTok / Shorts স্টাইল)</span>
+      <div class="no-scrollbar -mx-4 mt-2.5 flex gap-2.5 overflow-x-auto px-4 pb-2">
+        <div class="relative aspect-[9/15] w-[155px] flex-none overflow-hidden rounded-[22px] border border-[#E2C598] shadow-md">
+          <div class="h-full w-full" data-scene="0"></div>
+          <span class="absolute left-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[9.5px] font-bold text-white backdrop-blur-sm">▶ 0:08</span>
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-2.5 text-white">
+            <p class="serif text-[13px] font-extrabold">ভোর ৪টার রস</p>
+            <p class="text-[10px] opacity-85">কুয়াশায় প্রথম হাঁড়ি</p>
+          </div>
+        </div>
+        <div class="relative aspect-[9/15] w-[155px] flex-none overflow-hidden rounded-[22px] border border-[#E2C598] shadow-md">
+          <div class="h-full w-full" data-scene="1"></div>
+          <span class="absolute left-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[9.5px] font-bold text-white backdrop-blur-sm">▶ 0:12</span>
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-2.5 text-white">
+            <p class="serif text-[13px] font-extrabold">তাফালের জ্বাল</p>
+            <p class="text-[10px] opacity-85">০% চিনি ও হাইড্রোজ</p>
+          </div>
+        </div>
+        <div class="relative aspect-[9/15] w-[155px] flex-none overflow-hidden rounded-[22px] border border-[#E2C598] shadow-md">
+          <div class="h-full w-full" data-scene="2"></div>
+          <span class="absolute left-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[9.5px] font-bold text-white backdrop-blur-sm">▶ 0:09</span>
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-2.5 text-white">
+            <p class="serif text-[13px] font-extrabold">নরম পাটালি</p>
+            <p class="text-[10px] opacity-85">মুখে দিলেই গলে</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== #12: MINIMAL LUXURY EDITORIAL + FLOATING BADGE ==================== -->
+    <section id="m12" class="scroll-mt-28">
+      <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ১২ · মিনিমাল লাক্সারি এডিটোরিয়াল</span>
+      <div class="mt-2.5 rounded-[28px] bg-card p-5 shadow-sm border border-[#EAD5B5]">
+        <div class="text-center">
+          <p class="text-[11px] font-bold tracking-widest text-gur uppercase">RAJSHAHI HARVEST</p>
+          <h2 class="serif mt-1 text-[24px] font-black text-ink">৩টি কারণে আমাদের গুড় আলাদা</h2>
+        </div>
+        <div class="relative mt-4 h-[195px] overflow-hidden rounded-[22px]" data-scene="1"></div>
+        <div class="-mt-5 relative z-10 mx-auto w-fit rounded-full border border-[#E6C999] bg-card px-4 py-1.5 text-[12px] font-extrabold text-clay shadow-md">
+          ✦ ১০০% খাঁটি প্রথম রসের নিশ্চয়তা
+        </div>
+        <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+          <div class="rounded-2xl bg-sand/60 p-2.5"><span class="text-[18px]">🌿</span><p class="mt-1 text-[11.5px] font-bold">ভোর ৪টার রস</p></div>
+          <div class="rounded-2xl bg-sand/60 p-2.5"><span class="text-[18px]">🔥</span><p class="mt-1 text-[11.5px] font-bold">কাঠের জ্বাল</p></div>
+          <div class="rounded-2xl bg-sand/60 p-2.5"><span class="text-[18px]">🚫</span><p class="mt-1 text-[11.5px] font-bold">০% হাইড্রোজ</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== #13: INTERACTIVE TAP-THE-HOTSPOT ANATOMY ==================== -->
+    <section id="m13" class="scroll-mt-28">
+      <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ১৩ · ইন্টারেক্টিভ হটস্পট অ্যানাটমি (প্লাস চিহ্নে ট্যাপ করুন)</span>
+      <div class="mt-2.5 rounded-[26px] bg-card p-3.5 shadow-md border border-[#E5C999]">
+        <div class="relative h-[225px] overflow-hidden rounded-[20px]">
+          <div class="h-full w-full" data-scene="2"></div>
+          <button type="button" data-hs="কুয়াশার ভোরে নামানো প্রথম রসে কোনো টক ভাব থাকে না।" style="left:28%;top:42%" class="hs-btn absolute grid h-8 w-8 place-items-center rounded-full bg-clay text-[16px] font-bold text-white ring-4 ring-white/75 shadow-lg">+</button>
+          <button type="button" data-hs="চিনি ছাড়া জ্বাল দেওয়ায় পাটালি হয় নরম ও ঝুরঝুরে।" style="left:66%;top:58%" class="hs-btn absolute grid h-8 w-8 place-items-center rounded-full bg-leaf text-[16px] font-bold text-white ring-4 ring-white/75 shadow-lg">+</button>
+          <button type="button" data-hs="হাইড্রোজ ছাড়া প্রাকৃতিক গাঢ় বাদামি রং।" style="left:46%;top:24%" class="hs-btn absolute grid h-8 w-8 place-items-center rounded-full bg-gur text-[16px] font-bold text-white ring-4 ring-white/75 shadow-lg">+</button>
+        </div>
+        <div id="hsTip" class="mt-2.5 rounded-xl bg-sand px-3.5 py-2 text-center text-[12.5px] font-bold text-ink">
+          👆 ছবির যেকোনো <span class="text-clay">+</span> বাটনে ট্যাপ করে খাঁটি গুড়ের প্রমাণ দেখুন
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== #14: WOOCOMMERCE MARQUEE + VISUAL PROOF ==================== -->
+    <section id="m14" class="scroll-mt-28">
+      <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ১৪ · অটো-স্ক্রলিং মারকিউ + ভিজ্যুয়াল প্রুফ</span>
+      <div class="mt-2.5 overflow-hidden rounded-[26px] border border-[#E5C999] bg-card shadow-md">
+        <div class="overflow-hidden bg-clay py-2 text-[11.5px] font-bold text-[#FFF6E6]">
+          <div class="marquee-track gap-6">
+            <span>✦ ০% চিনি ও হাইড্রোজ</span><span>✦ ভোর ৪টার প্রথম রস</span><span>✦ কাঠের আগুনে জ্বাল</span><span>✦ ক্যাশ অন ডেলিভারি</span>
+            <span>✦ ০% চিনি ও হাইড্রোজ</span><span>✦ ভোর ৪টার প্রথম রস</span><span>✦ কাঠের আগুনে জ্বাল</span><span>✦ ক্যাশ অন ডেলিভারি</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-12 items-center gap-3 p-3.5">
+          <div class="col-span-6 h-[155px] overflow-hidden rounded-2xl" data-scene="1"></div>
+          <div class="col-span-6 space-y-2">
+            <h3 class="serif text-[17px] font-extrabold leading-snug">রাজশাহীর নিজস্ব তাফাল</h3>
+            <p class="text-[12px] leading-relaxed text-ink/75">কোনো মধ্যস্বত্বভোগী নেই — সরাসরি তাফাল থেকে আপনার হাতে।</p>
+            <span class="inline-block rounded-lg bg-leaf/15 px-2.5 py-1 text-[11px] font-bold text-leaf">✓ ৪.৯★ কাস্টমার রেটিং</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== #15: DARK-MODE LUXURY GOLD EDITION ==================== -->
+    <section id="m15" class="scroll-mt-28">
+      <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ১৫ · ডার্ক মোড গোল্ড লাক্সারি (প্রিমিয়াম D2C)</span>
+      <div class="mt-2.5 overflow-hidden rounded-[28px] bg-[#1E110A] p-5 text-[#FFF6E6] shadow-2xl">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-bold tracking-widest text-[#F2B44A]">ROYAL WINTER BATCH</span>
+          <span class="rounded-full border border-[#F2B44A]/40 px-2.5 py-0.5 text-[10px] font-bold text-[#F2B44A]">LIMITED</span>
+        </div>
+        <h3 class="serif mt-2 text-[22px] font-extrabold text-[#FFE3A0]">অভিজাত স্বাদের খাঁটি গুড়</h3>
+        <div class="mt-3 h-[170px] overflow-hidden rounded-2xl border border-[#F2B44A]/30" data-scene="4"></div>
+        <div class="mt-3.5 grid grid-cols-3 gap-2 text-center text-[11px]">
+          <div class="rounded-xl bg-white/5 p-2"><b class="block text-[15px] text-[#F2B44A]">০%</b>চিনি</div>
+          <div class="rounded-xl bg-white/5 p-2"><b class="block text-[15px] text-[#F2B44A]">৪ AM</b>প্রথম রস</div>
+          <div class="rounded-xl bg-white/5 p-2"><b class="block text-[15px] text-[#F2B44A]">২৪ ঘণ্টা</b>প্যাকিং</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== #16: 3D INTERACTIVE FLIP CARDS ==================== -->
+    <section id="m16" class="scroll-mt-28">
+      <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ১৬ · ৩ডি ফ্লিপ কার্ড (ট্যাপ করে উল্টে দেখুন)</span>
+      <div class="mt-2.5 grid grid-cols-3 gap-2">
+        <div class="flip-wrap h-[145px] cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+          <div class="flip-inner">
+            <div class="flip-face flex flex-col items-center justify-center rounded-2xl border border-[#E5C999] bg-card p-2 text-center shadow-sm">
+              <span class="text-[26px]">🎨</span>
+              <p class="serif mt-1.5 text-[14px] font-extrabold">রং কেমন?</p>
+              <span class="mt-1 text-[10px] font-bold text-clay">ট্যাপ করুন ↻</span>
+            </div>
+            <div class="flip-face flip-back flex flex-col items-center justify-center rounded-2xl bg-clay p-2.5 text-center text-white">
+              <p class="text-[11.5px] font-bold leading-snug">গাঢ় বাদামি — কোনো হাইড্রোজ নেই</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-wrap h-[145px] cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+          <div class="flip-inner">
+            <div class="flip-face flex flex-col items-center justify-center rounded-2xl border border-[#E5C999] bg-card p-2 text-center shadow-sm">
+              <span class="text-[26px]">👃</span>
+              <p class="serif mt-1.5 text-[14px] font-extrabold">ঘ্রাণ কেমন?</p>
+              <span class="mt-1 text-[10px] font-bold text-clay">ট্যাপ করুন ↻</span>
+            </div>
+            <div class="flip-face flip-back flex flex-col items-center justify-center rounded-2xl bg-leaf p-2.5 text-center text-white">
+              <p class="text-[11.5px] font-bold leading-snug">বক্স খুললেই মৌ মৌ শীতের ঘ্রাণ</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-wrap h-[145px] cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+          <div class="flip-inner">
+            <div class="flip-face flex flex-col items-center justify-center rounded-2xl border border-[#E5C999] bg-card p-2 text-center shadow-sm">
+              <span class="text-[26px]">💎</span>
+              <p class="serif mt-1.5 text-[14px] font-extrabold">ভাঙন কেমন?</p>
+              <span class="mt-1 text-[10px] font-bold text-clay">ট্যাপ করুন ↻</span>
+            </div>
+            <div class="flip-face flip-back flex flex-col items-center justify-center rounded-2xl bg-gur p-2.5 text-center text-white">
+              <p class="text-[11.5px] font-bold leading-snug">আঙুলের চাপে নরম দানা ভাঙে</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== #17: STEP PILLS + CIRCULAR GIF SPOTLIGHT ==================== -->
+    <section id="m17" class="scroll-mt-28">
+      <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ১৭ · স্টেপ-পিল সার্কুলার স্পটলাইট</span>
+      <div class="mt-2.5 rounded-[26px] border border-[#E5C999] bg-card p-4 text-center shadow-sm">
+        <div class="inline-flex rounded-full bg-sand p-1" id="m17Tabs">
+          <button data-m17="0" class="rounded-full bg-clay px-3 py-1 text-[11.5px] font-bold text-white">১. প্রথম রস</button>
+          <button data-m17="1" class="rounded-full px-3 py-1 text-[11.5px] font-bold text-ink/70">২. কাঠের জ্বাল</button>
+          <button data-m17="2" class="rounded-full px-3 py-1 text-[11.5px] font-bold text-ink/70">৩. আসল পাটালি</button>
+        </div>
+        <div id="m17Circle" class="mx-auto mt-4 h-[175px] w-[175px] overflow-hidden rounded-full border-4 border-[#F2B44A] shadow-lg"></div>
+        <p id="m17Cap" class="serif mt-3 text-[16px] font-extrabold text-ink">রোদ লাগার আগেই নামানো ভোরের রস</p>
+      </div>
+    </section>
+
+    <!-- ==================== #18: 2-TAP TASTE FINDER QUIZ ==================== -->
+    <section id="m18" class="scroll-mt-28">
+      <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ১৮ · ২-ট্যাপ "কোন গুড় নেবেন?" কুইজ</span>
+      <div class="mt-2.5 rounded-[26px] border-2 border-gur/35 bg-gradient-to-b from-[#FFFDF9] to-[#F7EAD6] p-4 shadow-md">
+        <h3 class="serif text-center text-[19px] font-extrabold text-ink">আজ বাসায় কী বানাবেন?</h3>
+        <div class="mt-3 grid grid-cols-3 gap-1.5" id="m18Btns">
+          <button data-m18="jhola" class="rounded-xl bg-clay py-2 text-[12px] font-bold text-white">🥟 ভাপা-চিতই</button>
+          <button data-m18="gol" class="rounded-xl bg-card border border-[#E2C598] py-2 text-[12px] font-bold text-ink">🥣 পায়েস-ক্ষীর</button>
+          <button data-m18="bij" class="rounded-xl bg-card border border-[#E2C598] py-2 text-[12px] font-bold text-ink">☕ চা / মুড়ি</button>
+        </div>
+        <div id="m18Res" class="mt-3 flex items-center justify-between rounded-2xl bg-card p-3 shadow-sm border border-[#E8D0AC]">
+          <div>
+            <span class="text-[10.5px] font-bold text-leaf">✓ আপনার জন্য সেরা পছন্দ</span>
+            <p class="serif text-[16px] font-extrabold text-ink">প্রথম রসের ঝোলা গুড়</p>
+          </div>
+          <span class="serif text-[20px] font-black text-clay">৳৪০০</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== #19: MAGAZINE OVERLAPPING FRAMES ==================== -->
+    <section id="m19" class="scroll-mt-28">
+      <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ১৯ · ম্যাগাজিন ওভারল্যাপিং ফ্রেম</span>
+      <div class="relative mt-2.5 pb-6">
+        <div class="ml-auto h-[190px] w-[82%] overflow-hidden rounded-[24px] border border-[#E2C598] shadow-md" data-scene="0"></div>
+        <div class="relative z-10 -mt-20 w-[72%] rounded-[22px] border-2 border-white bg-card p-3.5 shadow-xl">
+          <span class="text-[10.5px] font-extrabold text-gur">রাজশাহীর ঐতিহ্য</span>
+          <h3 class="serif mt-0.5 text-[17px] font-extrabold text-ink">১ হাঁড়ি গুড়ে লাগে ১০ হাঁড়ি রস</h3>
+          <p class="mt-1 text-[12px] text-ink/75">তাই আসল গুড়ের স্বাদ ও ঘ্রাণ হয় অতুলনীয়।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== #20: 3-SECOND PROMISE BENTO STRIP ==================== -->
+    <section id="m20" class="scroll-mt-28">
+      <span class="rounded-full bg-clay/10 px-2.5 py-0.5 text-[11px] font-extrabold text-clay">মকআপ ২০ · ৩-সেকেন্ড প্রমিস বেন্টো স্ট্রিপ</span>
+      <div class="mt-2.5 rounded-[26px] border border-[#E5C999] bg-card p-4 shadow-md">
+        <div class="flex items-center gap-3">
+          <div class="h-[96px] w-[96px] flex-none overflow-hidden rounded-2xl" data-scene="4"></div>
+          <div>
+            <h3 class="serif text-[18px] font-extrabold leading-snug text-ink">খাঁটি না হলে টাকা ফেরত</h3>
+            <p class="mt-1 text-[12px] text-ink/75">ডেলিভারি ম্যানের সামনেই খুলে ঘ্রাণ ও দানা পরীক্ষা করে নিন।</p>
+          </div>
+        </div>
+        <div class="mt-3 grid grid-cols-2 gap-2 text-[11.5px] font-bold">
+          <div class="rounded-xl bg-sand/70 px-3 py-2 text-ink">✓ ০% চিনি ও ফিটকিরি</div>
+          <div class="rounded-xl bg-sand/70 px-3 py-2 text-ink">✓ এয়ারটাইট সিলড জার</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+(function(){
+  function sceneSVG(idx){
+    if(idx===0)return `<svg viewBox="0 0 200 150" class="h-full w-full object-cover"><rect width="200" height="150" fill="#DCE5DF"/><circle cx="160" cy="28" r="14" fill="#FFF9EA"/><path d="M0,128 Q50,118 100,126 T200,122 V150 H0Z" fill="#D4BE9B"/><path d="M74,150 L80,34 L92,34 L91,150Z" fill="#7A4A26"/><g class="sway" style="transform-origin:86px 34px" stroke="#2D5A3C" stroke-width="6" fill="none" stroke-linecap="round"><path d="M86,34 Q60,16 30,24"/><path d="M86,34 Q112,16 142,24"/></g><path d="M88,74 L116,80" stroke="#CDB676" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="118" cy="112" rx="14" ry="12" fill="url(#g-clay)"/><ellipse class="drop" cx="116" cy="82" rx="2.5" ry="3" fill="#FFF3D2"/></svg>`;
+    if(idx===1)return `<svg viewBox="0 0 200 150" class="h-full w-full object-cover"><rect width="200" height="150" fill="#FBE9CD"/><path class="steam" d="M75,85 c-5,-8 5,-14 0,-22" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M32,150 L44,98 L156,98 L168,150Z" fill="#B0623A"/><path class="flame" d="M96,150 C90,136 98,124 100,114 C106,126 110,136 106,150Z" fill="#F7A531"/><ellipse cx="100" cy="98" rx="72" ry="14" fill="#3E2A1E"/><ellipse cx="100" cy="97" rx="64" ry="11" fill="#E9A23C"/><circle class="bubble" cx="80" cy="98" r="4" fill="#FFD98A"/></svg>`;
+    if(idx===2)return `<svg viewBox="0 0 200 150" class="h-full w-full object-cover"><rect width="200" height="150" fill="#FDF2DC"/><circle cx="166" cy="28" r="12" fill="#F7C55A"/><path d="M20,118 Q100,152 180,118 L170,68 Q100,50 30,68Z" fill="url(#g-weave)" stroke="#8E6326" stroke-width="3"/><path d="M38,104 Q62,70 92,102 Q66,112 38,104Z" fill="#4A200C"/><ellipse cx="138" cy="100" rx="20" ry="9" fill="url(#g-patali)"/></svg>`;
+    return `<svg viewBox="0 0 200 150" class="h-full w-full object-cover"><rect width="200" height="150" fill="#3B1E13"/><circle cx="36" cy="40" r="24" fill="#FFD27A" opacity=".35"/><rect x="30" y="28" width="12" height="18" rx="4" fill="#FFE9B0"/><path d="M0,112 L200,104 L200,150 L0,150Z" fill="#F7E8CC"/><ellipse cx="100" cy="122" rx="46" ry="10" fill="#D3A23C"/><path d="M74,120 C76,100 112,100 114,120Z" fill="#FFFDF5"/><path d="M84,107 C90,101 100,101 104,107Z" fill="url(#g-gur)"/></svg>`;
+  }
+
+  document.querySelectorAll('[data-scene]').forEach((el)=>{ el.innerHTML = sceneSVG(+el.dataset.scene); });
+
+  document.querySelectorAll('.hs-btn').forEach((b)=>{
+    b.addEventListener('click', ()=>{ document.getElementById('hsTip').textContent = '💡 ' + b.dataset.hs; });
+  });
+
+  const m17Data = [
+    { idx: 0, cap: 'রোদ লাগার আগেই নামানো ভোরের রস' },
+    { idx: 1, cap: 'হাইড্রোজ ছাড়া কাঠের আগুনে ধীরে জ্বাল' },
+    { idx: 2, cap: 'আঙুলের চাপে ভেঙে যায় নরম পাটালি' }
+  ];
+  function setM17(i){
+    document.getElementById('m17Circle').innerHTML = sceneSVG(m17Data[i].idx);
+    document.getElementById('m17Cap').textContent = m17Data[i].cap;
+    document.querySelectorAll('[data-m17]').forEach((b)=>{
+      const on = +b.dataset.m17 === i;
+      b.className = `rounded-full px-3 py-1 text-[11.5px] font-bold ${on ? 'bg-clay text-white' : 'text-ink/70'}`;
+    });
+  }
+  document.getElementById('m17Tabs').addEventListener('click',(e)=>{ const b=e.target.closest('[data-m17]'); if(b) setM17(+b.dataset.m17); });
+  setM17(0);
+
+  const m18Map = {
+    jhola: { name: 'প্রথম রসের ঝোলা গুড়', price: '৳৪০০' },
+    gol: { name: 'রাজশাহীর গোল পাটালি', price: '৳৪০০' },
+    bij: { name: 'চকলেট বা বীজ গুড়', price: '৳৫০০' }
+  };
+  document.getElementById('m18Btns').addEventListener('click',(e)=>{
+    const b = e.target.closest('[data-m18]');
+    if(!b) return;
+    const item = m18Map[b.dataset.m18];
+    document.querySelectorAll('[data-m18]').forEach((btn)=>{
+      btn.className = btn === b ? 'rounded-xl bg-clay py-2 text-[12px] font-bold text-white' : 'rounded-xl bg-card border border-[#E2C598] py-2 text-[12px] font-bold text-ink';
+    });
+    document.getElementById('m18Res').innerHTML = `<div><span class="text-[10.5px] font-bold text-leaf">✓ আপনার জন্য সেরা পছন্দ</span><p class="serif text-[16px] font-extrabold text-ink">${item.name}</p></div><span class="serif text-[20px] font-black text-clay">${item.price}</span>`;
+  });
+})();
+</script>
+</body>
+</html>
