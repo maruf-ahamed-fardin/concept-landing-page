@@ -120,7 +120,7 @@ export function ProductIcon({ id }: { id: string }) {
             fontSize="7.5"
             textAnchor="middle"
             fill="#3B1F0E"
-            fontFamily="Hind Siliguri, sans-serif"
+            fontFamily="Noto Sans Bengali, sans-serif"
             fontWeight="700"
           >
             ঝোলা

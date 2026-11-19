@@ -17,7 +17,7 @@ export function PurityGuaranteeSection() {
             <p className="text-[12.5px] font-bold tracking-wide text-leaf">
               🔬 শতভাগ খাঁটিত্বের চ্যালেঞ্জ
             </p>
-            <h2 className="serif mt-0.5 text-[23px] font-extrabold leading-[1.38] text-ink">
+            <h2 className="font-display mt-0.5 text-[23px] font-black leading-[1.38] text-ink">
               ডেলিভারি ম্যানের সামনেই{" "}
               <span className="gurtext">যাচাই করে নিন</span>
             </h2>
@@ -59,7 +59,7 @@ export function PurityGuaranteeSection() {
                 y="60"
                 textAnchor="middle"
                 fill="#FFFFFF"
-                fontFamily="'Hind Siliguri', sans-serif"
+                fontFamily="'Noto Sans Bengali', sans-serif"
                 fontWeight="700"
                 fontSize="10.5"
               >

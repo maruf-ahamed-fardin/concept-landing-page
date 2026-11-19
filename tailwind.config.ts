@@ -18,8 +18,10 @@ const config: Config = {
         leaf: "#2D5A3C",
       },
       fontFamily: {
-        serif: ['"Shohid Salam"', '"Tiro Bangla"', "serif"],
-        body: ['"Alinur Tarunya"', '"Anek Bangla"', "sans-serif"],
+        display: ['"Noto Sans Bengali"', "system-ui", "sans-serif"],
+        serif: ['"Noto Serif Bengali"', '"Tiro Bangla"', "serif"],
+        body: ['"Noto Sans Bengali"', "system-ui", "sans-serif"],
+        artisan: ['"Alinur Tarunya"', '"Tiro Bangla"', "sans-serif"],
         script: ['"Shohid Salam"', '"Tiro Bangla"', "serif"],
       },
     },
