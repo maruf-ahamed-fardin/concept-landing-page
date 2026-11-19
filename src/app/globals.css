@@ -1410,6 +1410,77 @@ details[open] .chev {
   }
 }
 
+/* Story walker: gachi + footprints (positions are set by StoryWalker.tsx) */
+.story-foot {
+  position: absolute;
+  width: 6px;
+  height: 3.5px;
+  margin: -1.75px 0 0 -3px;
+  border-radius: 50%;
+  background: rgba(118, 56, 24, 0.42);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.story-foot.on {
+  opacity: 1;
+}
+
+.story-walker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity 0.4s ease;
+}
+
+.story-walker::before {
+  content: "";
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  bottom: -2px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(80, 40, 20, 0.32), transparent);
+}
+
+.story-walker-body {
+  position: absolute;
+  inset: 0;
+  animation: storyWalkerIdle 1.8s ease-in-out infinite;
+}
+
+.story-walker.is-walking .story-walker-body {
+  animation: none;
+}
+
+.story-walker-sprite {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: 400% 100%;
+  background-position: 33.3333% 0;
+  filter: drop-shadow(0 3px 3px rgba(80, 35, 10, 0.25));
+}
+
+@keyframes storyWalkerIdle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-walker-body {
+    animation: none;
+  }
+}
+
 /* ================= NAKSHI KANTHA SECTION BANDS (warm kantha cloth · running-stitch ripples · stitched folk motifs) =================
    Palette follows the page theme: clay #9E3B24 · leaf #2D5A3C · gur-gold #C98A2B · gur #B85D19 (+ a touch of neel thread).
    .band-peach      → pale ghee kantha (couplet + terracotta frieze)

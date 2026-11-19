@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { StoryWalker } from "@/components/StoryWalker";
 
 interface StoryStep {
   num: string;
@@ -299,6 +300,9 @@ export function StorySection() {
               vectorEffect="non-scaling-stroke"
             />
           </svg>
+
+          {/* Gachi walking the story path with the reader */}
+          <StoryWalker pathD="M 42 12 C 66 34, 68 72, 54 110 C 38 150, 34 182, 46 214 C 64 248, 68 282, 54 322 C 38 362, 34 402, 46 444 C 54 470, 52 484, 46 492" onStep={setActiveStep} />
 
           <div className="relative z-10 space-y-6">
             {STORY_STEPS.map((step, idx) => {
