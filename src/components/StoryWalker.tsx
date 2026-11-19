@@ -6,8 +6,8 @@ import React, { useEffect, useRef, useState } from "react";
  * Scroll-driven gachi who walks the story path from step to step.
  * - The path is the same stretched SVG path the glow uses (viewBox 0 0 100 500, preserveAspectRatio none),
  *   resampled into real pixels so steps and footprints are evenly spaced at every width.
- * - He rests in the free gaps between story rows (never on top of card text), looks toward the card being read,
- *   and walks to the next gap as the reader scrolls. Footprints appear behind him.
+ * - He starts at the top of the path, rests in each free gap between story rows (never on top of card text),
+ *   looks toward the card being read, and walks on to the bottom as the reader scrolls. Footprints appear behind him.
  * - Only transforms/opacity change on scroll; one rAF loop eases his position so the walk stays smooth.
  */
 
@@ -39,7 +39,7 @@ export function StoryWalker({ pathD, onStep }: { pathD: string; onStep: (idx: nu
   const footRefs = useRef<(HTMLDivElement | null)[]>([]);
   const layoutRef = useRef<Layout | null>(null);
   const [feet, setFeet] = useState<(Pt & { d: number })[]>([]);
-  const [size, setSize] = useState({ w: 50, h: 86 });
+  const [size, setSize] = useState({ w: 36, h: 62 });
   const onStepRef = useRef(onStep);
   onStepRef.current = onStep;
 
@@ -83,7 +83,7 @@ export function StoryWalker({ pathD, onStep }: { pathD: string; onStep: (idx: nu
       const W = box.clientWidth;
       const H = box.clientHeight;
       if (!W || !H) return;
-      const w = W < 400 ? 46 : 54;
+      const w = W < 400 ? 34 : 40;
       const h = Math.round(w / FRAME_RATIO);
       const Lv = probe.getTotalLength();
       const N = 700;
@@ -102,7 +102,8 @@ export function StoryWalker({ pathD, onStep }: { pathD: string; onStep: (idx: nu
       const cardEls = Array.from(box.querySelectorAll<HTMLElement>(".rd-card"));
       const rects = cardEls.map((c) => c.getBoundingClientRect());
       const cards = rects.map((r) => ({ cy: r.top - top + r.height / 2, cx: r.left - box.getBoundingClientRect().left + r.width / 2 }));
-      const stations: { d: number; y: number }[] = [];
+      // the walk covers the whole path: start at the very top, rest in every gap, finish at the very bottom
+      const stations: { d: number; y: number }[] = [{ d: 0, y: pts[0].y }];
       for (let i = 0; i < rects.length - 1; i++) {
         const zoneTop = rects[i].bottom - top;
         const zoneBottom = rects[i + 1].top - top;
@@ -118,10 +119,10 @@ export function StoryWalker({ pathD, onStep }: { pathD: string; onStep: (idx: nu
         });
         stations.push({ d: cum[best], y: pts[best].y });
       }
-      if (!stations.length) stations.push({ d: 0, y: pts[0].y });
+      stations.push({ d: total, y: pts[N].y });
 
-      // footprints from the top of the path down to the last station
-      const end = stations[stations.length - 1].d;
+      // footprints along the whole path
+      const end = total - 4;
       const fp: (Pt & { d: number })[] = [];
       let side = 1;
       for (let d = 8; d <= end; d += FOOT_GAP) {
